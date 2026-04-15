@@ -1,0 +1,4 @@
+provider:
+  name : github
+  user : olofk
+  repo : serv

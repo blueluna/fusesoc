@@ -1,0 +1,4 @@
+provider:
+  name     : url
+  url      : https://example.com/core.tar.gz
+  filetype : tar

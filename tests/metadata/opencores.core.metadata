@@ -1,0 +1,5 @@
+provider:
+  name      : opencores
+  repo_name : uart16550
+  repo_root : communication_controller/uart16550
+  revision  : "1"

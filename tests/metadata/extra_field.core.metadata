@@ -1,0 +1,6 @@
+provider:
+  name    : github
+  user    : olofk
+  repo    : serv
+  version : 1.3.0
+unknown_key: this should not be here

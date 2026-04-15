@@ -1,0 +1,4 @@
+provider:
+  name    : git
+  repo    : https://github.com/olofk/serv.git
+  version : main

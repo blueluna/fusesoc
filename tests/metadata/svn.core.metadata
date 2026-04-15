@@ -1,0 +1,4 @@
+provider:
+  name     : svn
+  url      : https://opencores.org/ocsvn/uart16550/uart16550/trunk
+  revision : "42"

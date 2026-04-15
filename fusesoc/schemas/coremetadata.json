@@ -1,0 +1,201 @@
+{
+    "$schema": "https://json-schema.org/draft/2020-12/schema",
+    "title": "FuseSoC Core Metadata",
+    "description": "Companion metadata file for a CAPI2 .core file",
+    "type": "object",
+    "properties": {
+        "provider": {
+            "description": "Provider of core",
+            "type": "object",
+            "anyOf": [
+                {
+                    "description": "github Provider",
+                    "type": "object",
+                    "properties": {
+                        "name": {
+                            "type": "string",
+                            "const": "github"
+                        },
+                        "user": {
+                            "type": "string"
+                        },
+                        "repo": {
+                            "type": "string"
+                        },
+                        "version": {
+                            "type": "string"
+                        },
+                        "patches": {
+                            "$ref": "#/$defs/string_array"
+                        },
+                        "cachable": {
+                            "type": "boolean"
+                        }
+                    },
+                    "additionalProperties": false,
+                    "required": [
+                        "name",
+                        "user",
+                        "repo",
+                        "version"
+                    ]
+                },
+                {
+                    "description": "local Provider",
+                    "type": "object",
+                    "properties": {
+                        "name": {
+                            "type": "string",
+                            "const": "local"
+                        },
+                        "patches": {
+                            "$ref": "#/$defs/string_array"
+                        },
+                        "cachable": {
+                            "type": "boolean"
+                        }
+                    },
+                    "additionalProperties": false,
+                    "required": [
+                        "name"
+                    ]
+                },
+                {
+                    "description": "git Provider",
+                    "type": "object",
+                    "properties": {
+                        "name": {
+                            "type": "string",
+                            "const": "git"
+                        },
+                        "repo": {
+                            "type": "string"
+                        },
+                        "version": {
+                            "type": "string"
+                        },
+                        "patches": {
+                            "$ref": "#/$defs/string_array"
+                        },
+                        "cachable": {
+                            "type": "boolean"
+                        }
+                    },
+                    "additionalProperties": false,
+                    "required": [
+                        "name",
+                        "repo"
+                    ]
+                },
+                {
+                    "description": "opencores Provider",
+                    "type": "object",
+                    "properties": {
+                        "name": {
+                            "type": "string",
+                            "const": "opencores"
+                        },
+                        "repo_name": {
+                            "type": "string"
+                        },
+                        "repo_root": {
+                            "type": "string"
+                        },
+                        "revision": {
+                            "type": "string"
+                        },
+                        "patches": {
+                            "$ref": "#/$defs/string_array"
+                        },
+                        "cachable": {
+                            "type": "boolean"
+                        }
+                    },
+                    "additionalProperties": false,
+                    "required": [
+                        "name",
+                        "repo_name",
+                        "repo_root",
+                        "revision"
+                    ]
+                },
+                {
+                    "description": "svn Provider",
+                    "type": "object",
+                    "properties": {
+                        "name": {
+                            "type": "string",
+                            "const": "svn"
+                        },
+                        "url": {
+                            "type": "string"
+                        },
+                        "revision": {
+                            "type": "string"
+                        },
+                        "ignore_externals": {
+                            "type": "boolean"
+                        },
+                        "patches": {
+                            "$ref": "#/$defs/string_array"
+                        },
+                        "cachable": {
+                            "type": "boolean"
+                        }
+                    },
+                    "additionalProperties": false,
+                    "required": [
+                        "name",
+                        "url"
+                    ]
+                },
+                {
+                    "description": "url Provider",
+                    "type": "object",
+                    "properties": {
+                        "name": {
+                            "type": "string",
+                            "const": "url"
+                        },
+                        "url": {
+                            "type": "string"
+                        },
+                        "user-agent": {
+                            "type": "string"
+                        },
+                        "verify_cert": {
+                            "type": "string"
+                        },
+                        "filetype": {
+                            "type": "string"
+                        },
+                        "patches": {
+                            "$ref": "#/$defs/string_array"
+                        },
+                        "cachable": {
+                            "type": "boolean"
+                        }
+                    },
+                    "additionalProperties": false,
+                    "required": [
+                        "name",
+                        "url",
+                        "filetype"
+                    ]
+                }
+            ]
+        }
+    },
+    "required": [
+        "provider"
+    ],
+    "additionalProperties": false,
+    "$defs": {
+        "string_array": {
+            "type": "array",
+            "items": {
+                "type": "string"
+            }
+        }
+    }
+}
